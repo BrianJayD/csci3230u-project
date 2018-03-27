@@ -1,3 +1,47 @@
 @charset "UTF-8";
 /* CSS Document */
 
+body {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-color: #333;
+	overflow: hidden;
+}
+
+#fullpage {
+	display: flex;
+	flex-flow: column;
+	height: inherit;
+	width: 100%;
+	padding: 0;
+}
+
+#fullpage #mainbar {
+	flex: 0 1 auto;
+}
+
+#fullpage #contentarea {
+	flex: 1 1 auto;
+}
+
+#mainbar {
+	width: 100%;
+}
+
+#contentarea {
+	height: inherit;
+	background-color: #464646;
+}
+
+#groupbar {
+	position: fixed;
+	overflow-y: scroll;
+	top: 56px; /* Gotta change to make this not static? */
+	bottom: 0;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border-right-color: #2A2A2A;
+	border-right-style: solid;
+	background-color: #323232;
+}
