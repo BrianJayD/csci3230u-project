@@ -10,9 +10,12 @@ $(window).ready(function() {
 		links.className += " active";
 	});
 	
-	$('p').click(function() {
+	$('.post-container').click(function() {
 		console.log("Show");
+		var str = $('this > p');
+		console.log(str.text().name);
 		$('#image-info').toggleClass("minimize");
+		$('#image-info').toggleClass("expand");
 	});
 	
 });

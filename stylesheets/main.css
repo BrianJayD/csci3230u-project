@@ -54,17 +54,45 @@ body {
 #group-content {
 	height: inherit;
 	flex: 1 1 auto;
+	display: flex;
+	flex-flow: row wrap;
+	overflow-y: scroll;
 }
 
 #image-info {
   height: inherit;
 	flex: 0 1 auto;
-	width: 15%;
 	background-color: #323232;
 	border-left-color: #2A2A2A;
 	border-left-style: solid;
 }
 
+.expand {
+	width: 20%;
+}
+
 .minimize {
-	visibility: hidden;
+	width: 0;
+}
+
+.post-container {
+	height: 15rem;
+	width: 13rem;
+	margin: 1rem;
+	flex: 0 1 auto;
+	background-color: #333;
+}
+
+.post-container img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0.5rem;
+	width: 10rem;
+	height: 10rem;
+}
+
+.post-container p {
+  text-align: center;
+	color: yellow;
 }
