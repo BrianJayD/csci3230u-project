@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PhotoDrive - Home</title>
+<link rel="icon" href="resources/photobook_logo.png">
+<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+<!-- Link Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+<div id="fullpage">
+  <div id="mainbar" class="row-sm">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top"> <img src="resources/photobook_logo.png" alt="logo" height="40px"><a class="navbar-brand" href="#">PhotoBook</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="PhotoDrive_Discover.html">Discover</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="PhotoDrive_Account.html">Account</a> </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search" type="text">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div id="contentarea" class="row-sm">
+    <div id="groupbar">
+      <ul id="sideitems" class="nav flex-column nav-pills">
+        <li id="album-tab" class="nav-item"><a class="nav-link active" href="#">Albums</a></li>
+        <li id="friends-tab" class="nav-item"><a class="nav-link" href="#">Friends</a></li>
+        <li id="groups-tab" class="nav-item"><a class="nav-link" href="#">Groups</a></li>
+      </ul>
+    </div>
+    <div id="group-content">
+      <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
+        <p>Image 1</p>
+      </div>
+      <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
+        <p>Image 2</p>
+      </div>
+      <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
+        <p>Image 3</p>
+      </div>
+      <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
+        <p>Image 4</p>
+      </div>
+      <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
+        <p>Image 5</p>
+      </div>
+      <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
+        <p>Image 6</p>
+      </div>
+      <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
+        <p>Image 7</p>
+      </div>
+      <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
+        <p>Image 8</p>
+      </div>
+      <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
+        <p>Image 9</p>
+      </div>
+      <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
+        <p>Image 10</p>
+      </div>
+    </div>
+    <div id="image-info" class="expand">
+		
+      <p id="selected-name">World</p>
+    </div>
+  </div>
+</div>
+   
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<!-- Link jQuery Script --> 
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> 
+<!-- Link Local Javascript --> 
+<script src="scripts/home.js"></script> 
+<!-- Link Bootstrap Scripts --> 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "csci3230u-project",
+  "version": "1.0.0",
+  "description": "photo sharing app ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianJayD/csci3230u-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrianJayD/csci3230u-project/issues"
+  },
+  "homepage": "https://github.com/BrianJayD/csci3230u-project#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "firebase": "^4.12.1",
+    "pug": "^2.0.3"
+  }
+}
