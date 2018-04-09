@@ -1,30 +1,35 @@
 doctype
 html
 	head
-		title= title
-		link(rel="stylesheet",
-		     href="/generated.css")
-	body
-		div(class="content")= message
 
-		h2 CREATE ACCOUNT
-		form(action="/create/new" method="post",class="form-vertical")
-			label(for="email") email:
+	link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
+	link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css", integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r", crossorigin="anonymous")
+	script(src="https://code.jquery.com/jquery-2.2.4.js", integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=", crossorigin="anonymous")
+	script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous")
+	title= title
+
+	link(rel="stylesheet",href="stylesheets/generated.css")
+
+	body
+		div(id="bodyTag" class="center")
+			h2 Create Account
+			div(id="content", class="center")= message
+			form(action="/create/new", method="post",class="form-vertical")
+				//- label(for="email") Email:
 
 				input(type="text",
 					id="email",
 					name="email",
-					placeholder="email",
+					placeholder="Email",
 					class="form-control")
 
-				div
+				//- label(for="password") Password:
 
-				label(class="control-label col-sm-2",for="password") password:
-
-				input(type="text",
+				input(type="password",
 					id="password",
 					name="password",
 					placeholder="Password",
 					class="form-control")
-				div
-				button(type="submit") Create
+				
+				div(id="login")
+					button(type="submit") Create Account

@@ -20,13 +20,6 @@ content{
 	  background-color:disabled;
 }
 
-/* .center_b{
-  	margin: auto;
-    width: 50%;
-    padding: 10px;
-	  background-color:disabled;
-}
-*/
 
 body{ 
   padding: 1rem;
@@ -39,8 +32,11 @@ body{
 }
 
 h2{
- width: inherit;
- padding-left: 6em;
+ margin: auto;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+	  background-color:disabled; 
 }
 
 form label {
