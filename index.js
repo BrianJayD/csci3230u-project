@@ -45,7 +45,7 @@ var defaultApp = firebase.initializeApp(config);
 // });
 
 app.get('/', function (req, res) {
-	res.render('test', {message: "Welcome, Please Log in or Create and Account."});
+	res.render('login', {message: "Welcome, Please Log in or Create an Account."});
 	// res.send('/test')
 });
 
