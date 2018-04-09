@@ -1,6 +1,7 @@
 
 var port = process.env.PORT || 8082;
-var express = require('express');
+var express = require('express')
+var router = express.Router()
 var bodyParser = require('body-parser');
 var app = express();
 var curr_user;
@@ -12,7 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 
 var firebase = require("firebase");
-
+email = "";
+password = "" ;
 
 var config = {
 	apiKey: "AIzaSyAUIspMiH6pU_bU-BEo2fSIg7-FggndAW4",
@@ -43,35 +45,38 @@ var defaultApp = firebase.initializeApp(config);
 // });
 
 app.get('/', function (req, res) {
-	res.render('test', {message: "start"});
+	res.render('test', {message: "Welcome, Please Log in or Create and Account."});
+	// res.send('/test')
 });
 
+app.post('/create', function (req, res) {
+	res.render('create_account', {message: "create a new account"});
+});
 
-  		// res.sendFile(__dirname + "/public/PhotoDrive_Home.html");
-
-
-
-
-app.post('/create', function (req, res, next) {
-
-	const email = req.body.email;
-    const password = req.body.password;
+app.post('/create/new', function (req, res, next) {
+	email = req.body.email;
+    password = req.body.password;
 
     firebase.auth()
         .createUserWithEmailAndPassword(email, password)
         .then(function(user) { 
-  			res.sendFile(__dirname + "/public/PhotoDrive_Home.html");
+  		
+  		res.redirect('/main');
+  		// return res.redirect(__dirname + "/public/PhotoDrive_Home.html");
   		})
         .catch(next);
+})
 
+
+app.get('/main', function (req, res, next) {
+  	res.sendFile(__dirname + "/public/PhotoDrive_Home.html");
 });
 
-
-
 app.post('/main', function (req, res, next) {
+	console.log('main post');
 
-    const email = req.body.email;
-    const password = req.body.password;
+    email = req.body.email;
+    password = req.body.password;
 
     firebase.auth()
         .signInWithEmailAndPassword(email, password)

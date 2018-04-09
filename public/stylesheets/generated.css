@@ -1,0 +1,50 @@
+#content {
+  text-align: center;
+  
+}
+
+
+form{
+  margin: 3rem;
+}
+
+content{
+	margin: 3em;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+	  background-color:disabled;
+}
+
+/* .center_b{
+  	margin: auto;
+    width: 50%;
+    padding: 10px;
+	  background-color:disabled;
+}
+*/
+
+body{ 
+  padding: 1rem;
+	background-color: lightgray;
+}
+
+#login{
+  padding: 0.2em;
+  float: right;
+}
+
+h2{
+ width: inherit;
+ padding-left: 6em;
+}
+
+form label {
+  padding-left: 0.2em;
+  padding-top: 0.1em;
+}
+
