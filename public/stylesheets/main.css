@@ -67,6 +67,12 @@ body {
 	border-left-style: solid;
 }
 
+#btn_add {
+	position: fixed;
+	bottom: 5px;
+	right: 5px;
+}
+
 .expand {
 	width: 20%;
 }
