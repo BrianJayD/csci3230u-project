@@ -57,6 +57,7 @@ body {
 	display: flex;
 	flex-flow: row wrap;
 	overflow-y: scroll;
+
 }
 
 #image-info {
@@ -71,6 +72,25 @@ body {
 	position: fixed;
 	bottom: 5px;
 	right: 5px;
+}
+
+#add_window {
+	position: fixed;
+	height: 500px;
+	width: 300px;
+	top: 50%;
+	left: 50%;
+	margin-left: -150px;
+	margin-top: -250px;
+	border-color: yellow;
+	border-style: solid;
+	border-radius: 25px;
+	background-color: #323232;
+	text-align: center;
+	align-content: center;
+}
+
+#add_window_btns {
 }
 
 .expand {
@@ -101,4 +121,23 @@ body {
 .post-container p {
   text-align: center;
 	color: yellow;
+}
+
+#add_window h4 {
+	text-align: center;
+	color: white;
+}
+
+#add_window p {
+	color: white;
+}
+
+#add_window img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#add_window form {
+	align-content: center;
 }
