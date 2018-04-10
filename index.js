@@ -1,32 +1,44 @@
 
 var port = process.env.PORT || 8082;
 var express = require('express')
-var router = express.Router()
 var bodyParser = require('body-parser');
+
 var app = express();
-var curr_user;
-
 app.use(express.static('public'));
-
 app.use(bodyParser.urlencoded({ extended: true })); 
-
 app.set('view engine', 'pug');
 
-var firebase = require("firebase");
-email = "";
-password = "" ;
 
+
+var firebase = require("firebase");
 var config = {
 	apiKey: "AIzaSyAUIspMiH6pU_bU-BEo2fSIg7-FggndAW4",
 	authDomain: "photodrive-4003a.firebaseapp.com",
 	databaseURL: "https://photodrive-4003a.firebaseio.com",
 	projectId: "photodrive-4003a",
-	storageBucket: "",
 	messagingSenderId: "470628763354"
 };
+var defaultApp = firebase.initializeApp(config);
+
+var curr_user;
+var functions = require('firebase-functions');
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./photodrive-key.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://photodrive-4003a.firebaseio.com"
+});
+
+
+var db = admin.firestore();
+
+email = "";
+password = "" ;
+
 
 // Initialize the default app
-var defaultApp = firebase.initializeApp(config);
 
 // console.log(defaultApp.name);  // "[DEFAULT]"
 
@@ -35,14 +47,13 @@ var defaultApp = firebase.initializeApp(config);
 // var defaultDatabase = defaultApp.database();
 
 // ... or you can use the equivalent shorthand notation
-// defaultStorage = firebase.storage();
-// defaultDatabase = firebase.database(); 
+// db = admin.firestore(); 
 
-// firebase.auth().signOut().then(function() {
-// 	  // Sign-out successful.
-// 	}).catch(function(error) {
-// 	  // An error happened.
-// });
+// Import Admin SDK
+
+// Get a database reference to our blog
+
+
 
 app.get('/', function (req, res) {
 	res.render('login', {message: "Welcome, Please Log in or Create an Account."});
@@ -56,16 +67,32 @@ app.post('/create', function (req, res) {
 app.post('/create/new', function (req, res, next) {
 	email = req.body.email;
     password = req.body.password;
+    var displayName = req.body.displayName;
 
     firebase.auth()
         .createUserWithEmailAndPassword(email, password)
         .then(function(user) { 
-  		
-  		res.redirect('/main');
-  		// return res.redirect(__dirname + "/public/PhotoDrive_Home.html");
+	  		var data = {
+			  uuid: user.uid,
+			  display_name: displayName,
+			};
+
+			// Add a new document in collection "cities" with ID 'LA'
+			var setDoc = db.collection('users').doc(user.uid).set(data);
+
+	  		res.redirect('/main');
+	  		// return res.redirect(__dirname + "/public/PhotoDrive_Home.html");
   		})
         .catch(next);
 })
+
+// app.post('/main/upload', function (req, res) {
+// 	res.redirect('/upload');
+// });
+
+app.post('/upload', function (req, res, next) {
+  	res.render('upload', {message: "upload"});
+});
 
 
 app.get('/main', function (req, res, next) {
