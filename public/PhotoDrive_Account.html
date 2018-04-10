@@ -27,16 +27,28 @@
       </div>
     </nav>
   </div>
-  <div id="contentarea" class="row-sm">
+  <div id="contentarea" class="d-flex flex-column">
+    <img id="user_pic" src="resources/photobook_logo.png" alt="user_pic" />
+    <input id="upic_input" class="acc-inputs" type="file" name="pic" accept="image/*">
+    <h4 class="acc-headers">Username:</h4>
+    <input id="uname_input" class="acc-inputs" type="text" value="Username" />
+    <h4 class="acc-headers">Password:</h4>
+    <input id="pass_input" class="acc-inputs" type="password" value="password"/>
+    <h4 class="acc-headers">Email:</h4>
+    <input id="email_input" class="acc-inputs" type="text" value="email@email.com"/>
+    <div class="acc-buttons" class="row-sm">
+      <button id="btn_reset" type="button" class="btn btn-danger">Reset</button>
+      <button id="btn-accept" type="button" class="btn btn-success">Accept Changes</button>
+    </div>
   </div>
 </div>
-<!-- Link jQuery Script --> 
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> 
-<!-- Link Local Javascript --> 
-<script src="scripts/home.js"></script> 
-<!-- Link Bootstrap Scripts --> 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+<!-- Link jQuery Script -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<!-- Link Local Javascript -->
+<script src="scripts/account.js"></script>
+<!-- Link Bootstrap Scripts -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

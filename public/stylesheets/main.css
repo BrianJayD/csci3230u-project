@@ -90,6 +90,36 @@ body {
 	align-content: center;
 	visibility: hidden;
 }
+
+#user_pic {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	width: 20rem;
+	height: 20rem;
+}
+
+#add_window h4 {
+	text-align: center;
+	color: white;
+}
+
+#add_window p {
+	color: white;
+}
+
+#add_window img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#add_window form {
+	align-content: center;
+}
+
 .expand {
 	width: 20%;
 }
@@ -120,21 +150,18 @@ body {
 	color: yellow;
 }
 
-#add_window h4 {
+.acc-headers {
+	color: white;
 	text-align: center;
-	color: white;
 }
 
-#add_window p {
-	color: white;
+.acc-inputs {
+	align-self: center;
+	text-align: center;
+	width: 25%;
 }
 
-#add_window img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#add_window form {
-	align-content: center;
+.acc-buttons {
+	margin-top: 1rem;
+	align-self: center;
 }
