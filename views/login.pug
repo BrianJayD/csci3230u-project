@@ -17,7 +17,7 @@ html(language=en)
 		div(id="bodyTag" class="center")
 			h2 LOGIN
 			div(id="content", class="center")= message
-			form(action="/main", method="post",class="form-vertical")
+			form(action="/main", method="post", id="login_form")
 				//- label(for="email") Email:
 
 				input(type="text",
@@ -37,11 +37,8 @@ html(language=en)
 				div(id="login")
 					button(type="submit") Login
 					
-
-			form(action="/create", method="post",class="form-vertical")
-				button(
-			  	type='submit'
-				) Create a New Account
+			form(action="/create", method="post", id="create_button")
+				button(type='submit') Create a New Account
 
 		
 		

@@ -111,11 +111,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 //Express error handling middleware
-app.use((request,response)=>{
-   response.type('text/plain');
-   response.status(505);
-   response.send('Error page');
-});
+// app.use((request,response)=>{
+//    response.type('text/plain');
+//    response.status(505);
+//    response.send('Error page');
+// });
 
 
 // start the server
