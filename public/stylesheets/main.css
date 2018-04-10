@@ -88,11 +88,8 @@ body {
 	background-color: #323232;
 	text-align: center;
 	align-content: center;
+	visibility: hidden;
 }
-
-#add_window_btns {
-}
-
 .expand {
 	width: 20%;
 }
