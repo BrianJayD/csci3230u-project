@@ -66,20 +66,22 @@
       <div class="post-container"> <img src="resources/photobook_logo.png" alt="logo">
         <p>Image 10</p>
       </div>
-      <button id="btn_add"type="button" class="btn btn-success">+</button>
     </div>
+
+    <button id="btn_add" type="button" class="btn btn-success">+</button>
+
     <div id="image-info" class="expand">
       <p id="selected-name">World</p>
     </div>
     <div id="add_window">
       <h4>New Photo</h4>
       <img src="resources/photobook_logo.png" alt="toUpload" />
-      <form action="#">
+      <form action="/upload", method="post"">
         <input type="file" name="pic" accept="image/*">
         <p>Title:<input type="text" /></p>
         <p>Caption:<input type="text" /></p>
         <div id="add_window_btns">
-          <input id="input_cancel" type="submit" value="Cancel">
+          <input id="input_cancel" type="button" value="Cancel">
           <input type="submit" value="Upload">
         </div>
       </form>
