@@ -70,16 +70,17 @@
 
     <button id="btn_add" type="button" class="btn btn-success">+</button>
 
-    <div id="image-info" class="expand">
+    <div id="image-info" class="d-flex flex-column expand">
+      <img src="resources/photobook_logo.png" alt="detailed">
       <p id="selected-name">World</p>
     </div>
     <div id="add_window">
       <h4>New Photo</h4>
       <img src="resources/photobook_logo.png" alt="toUpload" />
-      <form action="/upload", method="post"">
+      <form action="/upload", method="post">
         <input type="file" name="pic" accept="image/*">
-        <p>Title:<input type="text" /></p>
-        <p>Caption:<input type="text" /></p>
+        Title:<input type="text" name="title">
+        Caption:<input name="cap" type="text">
         <div id="add_window_btns">
           <input id="input_cancel" type="button" value="Cancel">
           <input type="submit" value="Upload">

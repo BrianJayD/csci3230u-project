@@ -1,5 +1,5 @@
 
-var port = process.env.PORT || 8082;
+var port = process.env.PORT || 8081;
 var express = require('express')
 var bodyParser = require('body-parser');
 
@@ -7,51 +7,70 @@ var app = express();
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.set('view engine', 'pug');
+var fs = require('fs');
 
+// var gcloud = require('google-cloud');
+// var storage = gcloud.storage();
 
+firebase = require("firebase");
+var storage = require('@google-cloud/storage');
 
-var firebase = require("firebase");
 var config = {
-	apiKey: "AIzaSyAUIspMiH6pU_bU-BEo2fSIg7-FggndAW4",
-	authDomain: "photodrive-4003a.firebaseapp.com",
-	databaseURL: "https://photodrive-4003a.firebaseio.com",
-	projectId: "photodrive-4003a",
-	messagingSenderId: "470628763354"
-};
-var defaultApp = firebase.initializeApp(config);
+    apiKey: "AIzaSyAUIspMiH6pU_bU-BEo2fSIg7-FggndAW4",
+    authDomain: "photodrive-4003a.firebaseapp.com",
+    databaseURL: "https://photodrive-4003a.firebaseio.com",
+    projectId: "photodrive-4003a",
+    storageBucket: "gs://photodrive-4003a.appspot.com/",
+    messagingSenderId: "470628763354"
+  };
 
-var curr_user;
-var functions = require('firebase-functions');
-var admin = require("firebase-admin");
+firebase.initializeApp(config);
 
-var serviceAccount = require("./photodrive-key.json");
+var rootRef = firebase.database().ref();
+// var storage = firebase.storage().ref();
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://photodrive-4003a.firebaseio.com"
+var curr_user = {};
+
+var usersRef = rootRef.child("users");
+
+// console.log(usersRef);
+
+// var admin = require("firebase-admin");
+
+// var serviceAccount = require("./photodrive-key.json");
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   projectId: "photodrive-4003a",
+//   databaseURL: "https://photodrive-4003a.firebaseio.com",
+//   storageBucket: "gs://photodrive-4003a.appspot.com/"
+// });
+
+
+// var db = admin.firestore();
+
+// var db = admin.database().ref();
+// var usersRef = db.child("users");
+// Imports the Google Cloud client library
+
+
+// Your Google Cloud Platform project ID
+const projectId = 'photodrive-4003a';
+
+// Creates a client
+var gcs = storage({
+  projectId: projectId,
+  keyFilename: './keyfile.json'
 });
 
+var callback = function(err, bucket, apiResponse) {
+  // `bucket` is a Bucket object.
+  console.log(apiResponse);
+};
 
-var db = admin.firestore();
 
 email = "";
-password = "" ;
-
-
-// Initialize the default app
-
-// console.log(defaultApp.name);  // "[DEFAULT]"
-
-// You can retrieve services via the defaultApp variable...
-// var defaultStorage = defaultApp.storage();
-// var defaultDatabase = defaultApp.database();
-
-// ... or you can use the equivalent shorthand notation
-// db = admin.firestore(); 
-
-// Import Admin SDK
-
-// Get a database reference to our blog
+password = "";
 
 
 
@@ -78,7 +97,21 @@ app.post('/create/new', function (req, res, next) {
 			};
 
 			// Add a new document in collection "cities" with ID 'LA'
-			var setDoc = db.collection('users').doc(user.uid).set(data);
+			// var setDoc = db.collection('users').doc(user.uid).set(data);
+			usersRef.child(user.uid).set(data);
+			var temp = user.uid+"-album";
+			const bucketName = temp.toLowerCase();
+
+			// Creates a new bucket
+			gcs
+			  .createBucket(bucketName)
+			  .then(() => {
+			    console.log(`Bucket ${bucketName} created.`);
+			  })
+			  .catch(err => {
+			    console.error('ERROR:', err);
+			  });
+
 
 	  		res.redirect('/main');
 	  		// return res.redirect(__dirname + "/public/PhotoDrive_Home.html");
@@ -91,7 +124,39 @@ app.post('/create/new', function (req, res, next) {
 // });
 
 app.post('/upload', function (req, res, next) {
-  	res.render('upload', {message: "upload"});
+  	// res.render('upload', {message: "upload"});
+  	var title = req.body.title;
+    var caption = req.body.cap;
+    var file = req.body.pic;
+    console.log(file);
+    console.log(curr_user.uid);
+    
+    var data = {
+			  img_title: title,
+			  img_cap: caption,
+			  img: file
+			};
+	var temp = curr_user.uid+"-album";
+	const bucketName = temp.toLowerCase();
+	var bucket = gcs.bucket(temp)
+	// console.log(bucket);
+	// storage.put(file).then(function(snapshot) {
+ //  		console.log('Uploaded a blob or file!');
+	// });
+
+	bucket.upload(file, function(err, file) {
+	  if (!err) {
+	    // "zebra.jpg" is now in your bucket.
+	    console.log("success?");
+	  } else {
+	  	console.log("this");
+	  }
+	});
+	
+    // usersRef.child(curr_user.uid).child('album').child(title).set(data);
+	res.redirect('/main');
+
+
 });
 
 

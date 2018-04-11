@@ -17,6 +17,7 @@ $(window).ready(function() {
 		console.log(str.text().name);
 		$('#image-info').toggleClass("minimize");
 		$('#image-info').toggleClass("expand");
+		var temp = $(this).find('p').text();
 	});
 
 	$('#btn_add').click(function() {
